@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React #01 - createElement</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script>
+        const h3 = React.createElement(
+            "h3", 
+            {
+                id : "title",
+                onMouseEnter : () => console.log("This page title is here!")
+            },
+            "Hello Stranger!"
+        );
+        const button = React.createElement(
+            "button",
+            {
+                type : "button",
+                class : "btn",
+                style : {
+                    padding : 10,
+                    color : "white",
+                    background : "#ccc",
+                    borderRadius : 5
+                },
+                onClick : () => console.log("button clicked!")
+            },
+            "Button"
+        );
+
+        const root = document.querySelector('#root');
+        const container = React.createElement("div", null, [h3, button]);
+
+        ReactDOM.render(container, root);
+    </script>
+</body>
+</html>

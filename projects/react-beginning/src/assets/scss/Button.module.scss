@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.btn {
+    padding: 10px;
+    color: #fff;
+    border: {
+        width: 0;
+        style: none;
+        radius: 5px;
+    }
+    font: {
+        size: inherit;
+        weight: bold;
+    }
+    background: #ccc;
+}

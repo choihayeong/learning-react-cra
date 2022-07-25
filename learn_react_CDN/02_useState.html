@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React #02 - useState</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        function MinutesToHours() {
+            const [amount, setAmount] = React.useState(0);
+            const [inverted, setInvert] = React.useState(true);
+            const onAmountChange = event => {
+                setAmount(event.target.value);
+            }
+            const onInverting = event => {
+                onReset();
+                setInvert(current => !current);
+            }
+            const onReset = () => {
+                setAmount(0);
+            }
+
+            return (
+                <div className="converter__inner">
+                    <h2 className="converter__title">Minutes to Hours</h2>
+
+                    <div>
+                        <label htmlFor="minutes">Minutes: </label>
+                        <input 
+                            type="number" 
+                            id="minutes" 
+                            value={inverted ? amount : amount * 60} 
+                            onChange={onAmountChange} 
+                            disabled={!inverted}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="hours">Hours: </label>
+                        <input 
+                            type="number" 
+                            id="hours" 
+                            value={inverted ? amount / 60 : amount} 
+                            onChange={onAmountChange}
+                            disabled={inverted}
+                        />
+                    </div>
+
+                    <div className="buttons">
+                        <button type="button" onClick={onInverting}>
+                            Invert
+                        </button>
+                        <button type="button" onClick={onReset}>
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            )
+        }
+        function InchesToCentimerters() {
+            const [amount, setAmount] = React.useState(0);
+            const [inverted, setInvert] = React.useState(true);
+            const onAmountChange = event => {
+                setAmount(event.target.value);
+            }
+            const onInverting = event => {
+                onReset();
+                setInvert(current => !current);
+            }
+            const onReset = () => {
+                setAmount(0);
+            }
+
+            return (
+                <div className="converter__inner">
+                    <h2 className="converter__title">Inches to Centimerters</h2>
+
+                    <div>
+                        <label htmlFor="inches">Inches: </label>
+                        <input 
+                            type="number" 
+                            id="inches" 
+                            value={inverted ? amount : amount / 2.54} 
+                            onChange={onAmountChange} 
+                            disabled={!inverted}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="centimeters">Centimeters: </label>
+                        <input 
+                            type="number" 
+                            id="centimeters" 
+                            value={inverted ? amount * 2.54 : amount} 
+                            onChange={onAmountChange}
+                            disabled={inverted}
+                        />
+                    </div>
+
+                    <div className="buttons">
+                        <button type="button" onClick={onInverting}>
+                            Invert
+                        </button>
+                        <button type="button" onClick={onReset}>
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            )
+        }
+
+        function App() {
+            const [index, setIndex] = React.useState("default");
+            const onSelect = event => {
+                setIndex(event.target.value);
+            }
+
+            return (
+                <div class="content">
+                    <h1 className="title">Unit Converter</h1>
+
+                    <select value={index} onChange={onSelect}>
+                        <option value="default">Select units you want to convert</option>
+                        <option value="0">Minutes to Hours</option>
+                        <option value="1">Inches to Centimeters</option>
+                    </select>
+                    <div className="converter">
+                        {index === "default" ? "Select units you want to convert" : null}
+                        {index === "0" ? <MinutesToHours /> : null}
+                        {index === "1" ? <InchesToCentimerters /> : null}
+                    </div>
+                </div>
+            )
+        }
+
+        const root = document.querySelector('#root');
+
+        ReactDOM.render(<App />, root);
+    </script>
+</body>
+</html>

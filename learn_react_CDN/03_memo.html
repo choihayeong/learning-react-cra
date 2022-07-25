@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React #03 - memo</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/prop-types@15.6/prop-types.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        function Btn({ text, chnageValue, fontSize = 18 }) {
+            console.log(`${text} was rendered`);
+            
+            return(
+                <button
+                    type="button"
+                    style={{
+                        padding: 10,
+                        color: "white",
+                        borderRadius: 5,
+                        background: "#ccc",
+                        fontSize: fontSize,
+                    }}
+                    onClick={chnageValue}
+                >
+                    {text}
+                </button>
+            )
+        }
+
+        const MemorizedBtn = React.memo(Btn);
+
+        function App() {
+            const [txtVal, setText] = React.useState("Default");
+            const changeText = () => setText("Revert");
+
+            return (
+                <div>
+                    <h1>React Memorized</h1>
+
+                    <MemorizedBtn text={txtVal} chnageValue={changeText}/>
+                    <MemorizedBtn text="Just Button" fontSize={16} />
+                </div>
+            )
+        }
+
+        const root = document.querySelector("#root");
+        ReactDOM.render(<App />, root);
+    </script>
+</body>
+</html>
