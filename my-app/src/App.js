@@ -2,28 +2,37 @@ import { useState, useEffect } from 'react';
 import Button from './components/Button';
 import styles from './assets/scss/App.module.scss';
 
-function Hello() {
-  function byeFn() {
-    console.log('bye :(');
-  }
-  function hiFn() {
-    console.log('created :)');
-
-    return byeFn; // cleanup Function
-  }
-  useEffect(hiFn, []);
-
-  return <h1>Hello</h1>;
-}
-
 function App() {
-  const [showing, setShowing] = useState(false);
-  const onClick = () => setShowing(prev => !prev);
+  const [newTodo, setNewTodo] = useState('');
+  const [todoItems, setTodoItems] = useState([]);
+  const setTodo = (event) => setNewTodo(event.target.value);
+  const submitEvent = (event) => {
+    event.preventDefault();
+    if (newTodo === '') {
+      return;
+    }
+    setNewTodo('');
+    setTodoItems(currentArr => [newTodo, ...currentArr]);
+  }
 
   return (
     <div>
-      {showing ? <Hello></Hello> : null}
-      <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
+      <h1>React To Do ({todoItems.length})</h1>
+      <form onSubmit={submitEvent}>
+        <input 
+          onChange={setTodo} 
+          value={newTodo} 
+          type='text' 
+          placeholder='Write your today work' 
+        />
+        <button>Add New To Do</button>
+      </form>
+      <hr />
+      <ul>
+        {todoItems.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
       {/* <Button text={"Continue"} onClick={onClick} /> */}
     </div>
   );
