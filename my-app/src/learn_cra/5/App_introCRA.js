@@ -1,5 +1,4 @@
 import Button from './components/Button';
-import styles from './assets/scss/App.module.scss';
 
 function App() {
   return (
