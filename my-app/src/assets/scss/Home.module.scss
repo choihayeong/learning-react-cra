@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.wrap {
+    word-break: keep-all;
+}
+.content {
+    padding:60px 16px;
+}
+.loadingMsg {
+    text-align:center;
+    font-size:60px;
+    font-weight:bold;
+}
+
+@media screen and (min-width:768px) {
+    .content {
+        display:flex;
+        flex-wrap:wrap;
+        gap:16px;
+        padding:60px;
+        & > * {
+            flex:1 0 calc(50% - 8px);
+        }
+    }
+    .row {
+        max-width:1440px;
+        margin:0 auto;
+    }
+}

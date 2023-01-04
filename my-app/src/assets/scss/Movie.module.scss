@@ -1,0 +1,54 @@
+@charset "UTF-8";
+@import "base/_variables";
+
+.moviebox {
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:30px;
+    border:2px solid $pointColor2;
+    border-radius:20px;
+    transition:background 0.3s ease;
+    &:hover {
+        background:rgba($color: $white, $alpha: 0.25);
+    }
+    & ~ .moviebox {
+        margin-top:30px;
+    }
+    &__thumbnail {
+        flex-basis:40%;
+    }
+    &__info {
+        flex:1 0 60%;
+        padding:20px;
+    }
+    &__title {
+        color:$pointColor2;
+        font-size:24px;
+        font-weight:500;
+        transition:color 0.3s ease;
+        text-decoration:underline;
+    }
+    &__description {
+        display:-webkit-box;
+        -webkit-line-clamp:3;
+        -webkit-box-orient:vertical;
+        overflow:hidden;
+        min-height:81px;
+        margin-top:20px;
+    }
+    &__genres {
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        margin-top:15px;
+        & > li {
+            font-size:14px;
+            font-weight:300;
+        }
+    }
+}
+
+@media screen and (min-width:768px) {
+    .moviebox ~ .moviebox {margin-top:0}
+}
