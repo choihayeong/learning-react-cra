@@ -3,6 +3,5 @@ learning react for beginners
 
 ## 📁 learn_react_CDN
 
-## 📁 projects
-### projwithreact01
+## 📁 my-app
 create-react-app을 이용
