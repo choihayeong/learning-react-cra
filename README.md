@@ -1,10 +1,8 @@
 # react_movie
 - learning react for beginners
 
-## 📁 learn_react_CDN
-### 01/ useState & useEffect
-### 02/ react.memo() 를 활용하여 쓸데없는 렌더링 중복 방지
-### 03/ propTypes
+## 📁 _CDN 
+- [위키 정리](https://github.com/choihayeong/react_movie/wiki)
 
 ## 📁 my-app
 - create-react-app을 이용
