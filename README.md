@@ -1,12 +1,12 @@
-# react_movie
+# learning-react-cra
 - learning react for beginners
 
 ## 📁 _CDN 
 - [위키 정리](https://github.com/choihayeong/react_movie/wiki)
+- challenge #1 : Unit Converter
 
-## 📁 whatever
-- create-react-app(cra)을 이용해서 기본적인 몇 가지 기능 (`useEffect`, `useRef`)
-- [위키 정리](https://github.com/choihayeong/react_movie/wiki)
+## 📁 front
+- CRA challenge 등 통합
 
 ### 의존 패키지
 ```json
@@ -25,41 +25,14 @@
   },
 ```
 
-### react-router-dom 활용
-- index.js에 다음과 같이 import
-```javascript
-import { createBrowserRouter, RouterProvide } from 'react-router-dom';
-import Home from './routes/Home';
+## 📁 whatever
+- create-react-app(cra)을 이용한 기본적인 몇 가지 기능 이용 (`useEffect`, `useRef`)
+- [위키 정리](https://github.com/choihayeong/react_movie/wiki)
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />
-  }
-]);
+## 📁 simple-todo
+- challenge #2 : simple todo
 
-function App() {
-  return <RouterProvider router={router} />
-}
+## 📁 coin-tracker
+- challenge #3 : coin tracker using api by fetching data
+- [Using coinpaprika api](https://api.coinpaprika.com/#tag/Tickers)
 
-export default App;
-```
-
-- 아래 처럼도 쓸 수 있음
-```javascript
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './routes/Home';
-import './assets/sass/App.module.scss';
-
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path={`/`} element={<Home />}></Route>
-      </Routes>
-    </BrowserRouter>
-  );
-}
-
-export default App;
-```

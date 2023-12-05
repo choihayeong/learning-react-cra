@@ -1,0 +1,32 @@
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+
+  &__header {
+    margin-block-end: 1.25rem;
+    text-align: center;
+  }
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.form-todo {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.625rem;
+  & > * {
+    flex: 1;
+  }
+
+  input[type="submit"] {
+    flex-grow: 0;
+  }
+}

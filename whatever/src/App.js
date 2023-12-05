@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import './App.css';
+import './scss/App.scss';
 import Button from "./components/Button";
 import FormInput from "./components/FormInput";
 import SubscriptionArea from './components/SubscriptionArea';
