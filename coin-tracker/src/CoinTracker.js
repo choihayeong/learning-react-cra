@@ -5,24 +5,14 @@ import FormInput from "./components/FormInput";
 const CoinTracker = (props) => {
   const { optionArr, maxOption = 10 } = props;
 
-  const INITIAL_INDEX = optionArr[0].name;
-
-  const [sltIndex, setSltIndex] = useState(INITIAL_INDEX);
+  const [sltIndex, setSltIndex] = useState(0);
   const getSelectValue = (ele) => {
     setSltIndex(ele.target.value);
   }
 
-  // const [sltObject, setSltObject] = useState();
-
-
   const [usd, setUsd] = useState(0);
   const getUsdValue = (ele) => {
     setUsd(ele.target.value);
-  }
-
-  const [coin, setCoin] = useState(0);
-  const getUSDtoCoin = (ele) => {
-    setCoin();
   }
 
   return (
@@ -30,16 +20,18 @@ const CoinTracker = (props) => {
       <SelectBox value={sltIndex} onChange={getSelectValue}>
         {optionArr.slice(0, maxOption).map((item, index) => (
           <option 
-            value={item.name} 
+            value={index} 
             key={index}
           >
             {item.name} ({item.symbol})
           </option>
         ))}
       </SelectBox>
+
       <hr />
+
       <div className="unit-converter">
-        <h3>{sltIndex} to USD</h3>
+        <h3>{optionArr[sltIndex].name} to USD</h3>
 
         <FormInput 
           inputType={"number"}
@@ -49,12 +41,10 @@ const CoinTracker = (props) => {
           getFormInputValue={getUsdValue} 
         />
 
-        <FormInput 
-          inputType={"number"}
-          label={sltIndex} 
-          forId={"iptCoin"} 
-          value={usd} 
-        />
+        <div>
+          <h4>Result</h4>
+          {usd / optionArr[sltIndex].quotes.USD.price} {optionArr[sltIndex].symbol}
+        </div>
       </div>
     </>
   )

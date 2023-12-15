@@ -11,7 +11,7 @@ const App = () => {
     fetch("https://api.coinpaprika.com/v1/tickers")
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
+        // console.log(json);
         setCoinArr(json);
         setLoading(false);
       })
