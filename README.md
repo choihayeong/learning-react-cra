@@ -25,6 +25,19 @@
   },
 ```
 
+### 개발 서버 실행 포트 번호 변경 (`localhost:3000`)
+- 기본적으로 cra 포트번호는 `3000`
+- 아래와 같이 `set PORT={변경하고 싶은 포트 번호} &&`를 추가
+```json
+  "scripts": {
+    "start": "set PORT=3030 && react-scripts start",
+  },
+```
+- 또는 다음과 같이 root 폴더에 `.env`파일 생성 후 `PORT={변경하고 싶은 포트 번호}` 같이 저장
+```
+PORT=3030
+```
+
 ## 📁 whatever
 - create-react-app(cra)을 이용한 기본적인 몇 가지 기능 이용 (`useEffect`, `useRef`)
 - [위키 정리](https://github.com/choihayeong/react_movie/wiki)
@@ -36,3 +49,6 @@
 - challenge #3 : coin tracker using api by fetching data
 - [Using coinpaprika api](https://api.coinpaprika.com/#tag/Tickers)
 
+## 📁 react-movie
+- project : react movie using api by fetching data
+- [Using yts.mx api](https://yts.mx/api)
