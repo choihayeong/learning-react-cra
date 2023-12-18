@@ -1,80 +1,54 @@
-# react_movie
+# learning-react-cra
 - learning react for beginners
 
-## 📁 learn_react_CDN
-### 01/ useState & useEffect
-### 02/ react.memo() 를 활용하여 쓸데없는 렌더링 중복 방지
-### 03/ propTypes
+## 📁 _CDN 
+- [위키 정리](https://github.com/choihayeong/react_movie/wiki)
+- challenge #1 : Unit Converter
 
-## 📁 my-app
-- create-react-app을 이용
+## 📁 front
+- CRA challenge 등 통합
 
-### CRA 설치
-```
-npx create-react-app my-app
-```
-```
-cd my-app
-npm start
-```
-
-### package.json 파일 중 
+### 의존 패키지
 ```json
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "gh-pages": "^4.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.11.2",
+    "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
-    "sass": "^1.62.1",
+    "sass": "^1.56.1",
     "web-vitals": "^2.1.4"
   },
 ```
 
-- 기존 CRA로 설치된 package.json 파일에서 추가로 prop-types와 react-dom을 설치해줌
+### 개발 서버 실행 포트 번호 변경 (`localhost:3000`)
+- 기본적으로 cra 포트번호는 `3000`
+- 아래와 같이 `set PORT={변경하고 싶은 포트 번호} &&`를 추가
+```json
+  "scripts": {
+    "start": "set PORT=3030 && react-scripts start",
+  },
 ```
-npm i prop-types
-npm i react-router-dom
+- 또는 다음과 같이 root 폴더에 `.env`파일 생성 후 `PORT={변경하고 싶은 포트 번호}` 같이 저장
 ```
-
-### react-router-dom 활용
-- index.js에 다음과 같이 import
-```javascript
-import { createBrowserRouter, RouterProvide } from 'react-router-dom';
-import Home from './routes/Home';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />
-  }
-]);
-
-function App() {
-  return <RouterProvider router={router} />
-}
-
-export default App;
+PORT=3030
 ```
 
-- 아래 처럼도 쓸 수 있음
-```javascript
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './routes/Home';
-import './assets/sass/App.module.scss';
+## 📁 whatever
+- create-react-app(cra)을 이용한 기본적인 몇 가지 기능 이용 (`useEffect`, `useRef`)
+- [위키 정리](https://github.com/choihayeong/react_movie/wiki)
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path={`/`} element={<Home />}></Route>
-      </Routes>
-    </BrowserRouter>
-  );
-}
+## 📁 simple-todo
+- challenge #2 : simple todo
 
-export default App;
-```
+## 📁 coin-tracker
+- challenge #3 : coin tracker using api by fetching data
+- [Using coinpaprika api](https://api.coinpaprika.com/#tag/Tickers)
+
+## 📁 react-movie
+- project : react movie using api by fetching data
+- [Using yts.mx api](https://yts.mx/api)

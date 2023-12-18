@@ -1,0 +1,9 @@
+select {
+  width: 100%;
+  padding: var(--select-box-padding, 1em);
+  border: 0 none;
+  background: #fff;
+  border-radius: var(--select-box-border-radius, 0.1375rem);
+  font-size: var(--select-box-font, 0.875rem);
+  outline: none;
+}

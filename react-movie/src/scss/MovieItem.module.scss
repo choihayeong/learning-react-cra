@@ -1,0 +1,48 @@
+.movieitem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 0.5rem;
+
+  & ~ & {
+    margin-top: 1rem;
+  }
+
+  figure {
+    margin: 0;
+    padding: 0;
+    flex-basis: 30%;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+.movieinfo {
+  flex: 1;
+
+  h3 {
+    color: yellow;
+  }
+
+  p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  & > li {
+    font-size: 0.875rem;
+  }
+}
