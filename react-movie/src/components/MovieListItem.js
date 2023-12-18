@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import style from "../scss/MovieItem.module.scss";
 import { Link } from 'react-router-dom';
 
-const MovieItem = (props) => {
+const MovieListItem = (props) => {
   const { title, cover_image, summary, genres, url } = props;
 
   return (
@@ -26,9 +26,9 @@ const MovieItem = (props) => {
   )
 }
 
-export default MovieItem;
+export default MovieListItem;
 
-MovieItem.propTypes = {
+MovieListItem.propTypes = {
   title: PropTypes.string.isRequired,
   cover_image: PropTypes.string,
   summary: PropTypes.string,

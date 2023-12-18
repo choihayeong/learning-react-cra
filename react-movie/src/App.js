@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './routes/MovieHome';
 import MovieDetail from './routes/MovieDetail';
 
-const router = createBrowserRouter([
+const routes = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
 
 const App = () => {
   return (
-    <RouterProvider router={router} />
+    <RouterProvider router={routes} />
   );
 }
 
