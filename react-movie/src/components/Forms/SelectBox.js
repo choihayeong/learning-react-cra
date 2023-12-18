@@ -1,4 +1,4 @@
-import styles from "../scss/SelectBox.module.scss";
+import styles from "@/scss/SelectBox.module.scss";
 
 const SelectBox = (props) => {
   const { value, onChange, children } = props;

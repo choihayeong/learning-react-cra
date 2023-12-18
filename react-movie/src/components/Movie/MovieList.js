@@ -1,4 +1,4 @@
-import style from "../scss/MovieList.module.scss";
+import style from "@/scss/MovieList.module.scss";
 import MovieListItem from "./MovieListItem";
 
 const MovieList = (prop) => {

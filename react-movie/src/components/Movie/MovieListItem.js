@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import style from "../scss/MovieItem.module.scss";
+import style from "@/scss/MovieItem.module.scss";
 import { Link } from 'react-router-dom';
 
 const MovieListItem = (props) => {

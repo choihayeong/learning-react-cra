@@ -1,9 +1,8 @@
-
-import { useEffect, useState } from 'react';
-import style from '../scss/MovieHome.module.scss';
-import Skeleton from "../components/Skeleton";
-import SelectBox from '../components/SelectBox';
-import MovieList from '../components/MovieList';
+import { useEffect, useState, useCallback } from 'react';
+import style from "@/scss/MovieHome.module.scss";
+import Skeleton from "@/components/Skeleton";
+import MovieList from "@/components/Movie/MovieList";
+import MovieHomeHeader from "@/components/Movie/MovieHomeHeader";
 
 const Home = () => {
   const [ratings, setRatings] = useState(8.8);
@@ -11,43 +10,41 @@ const Home = () => {
     setRatings(ele.target.value);
   };
 
-  const [sortValue, setSortValue] = useState("");
+  const [sort, setSort] = useState("");
   const getSortValue = (ele) => {
-    setSortValue(ele.target.value);
+    setSort(ele.target.value);
   };
 
   const [loading, setLoading] = useState(true);
 
   const [allMovies, setAllMovies] = useState([]);
   const getMovies = async () => {
-    const allData = await (await fetch(`https://yts.mx/api/v2/list_movies.json?with_rt_ratings=1&sort_by=${sortValue}&minimum_rating=${ratings}`)).json();
+    const allData = await (await fetch(`https://yts.mx/api/v2/list_movies.json?with_rt_ratings=1&sort_by=${sort}&minimum_rating=${ratings}`)).json();
 
     setAllMovies(allData.data.movies);
     setLoading(false);
   };
 
+  /* const getMovies = useCallback(async () => {
+    const allData = await (await fetch(`https://yts.mx/api/v2/list_movies.json?with_rt_ratings=1&sort_by=${sort}&minimum_rating=${ratings}`)).json();
+
+    setAllMovies(allData.data.movies);
+    setLoading(false);
+  }, [sort, ratings]); */
+
   useEffect(() => {
     getMovies();
-  }, [sortValue, ratings]);
+  }, [sort, ratings]);
 
   return (
     <div className={style.home}>
-      <input 
-        type="range" 
-        max={9} 
-        min={0} 
-        step={0.1} 
-        value={ratings} 
-        onChange={getMinimumRatings} 
+      <MovieHomeHeader 
+        classes={style.home__header}
+        ratingsValue={ratings} 
+        sortValue={sort}
+        handleRatings={getMinimumRatings} 
+        handleSorting={getSortValue}
       />
-      {ratings}
-
-      <SelectBox value={sortValue} onChange={getSortValue}>
-        <option value="">All</option>
-        <option value="year">Year</option>
-        <option value="like_count">Likes</option>
-        <option value="download_count">Downloads</option>
-      </SelectBox>
 
       {loading ? <Skeleton /> : <MovieList movieArr={allMovies} />}
     </div>
