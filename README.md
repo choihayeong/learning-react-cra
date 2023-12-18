@@ -11,6 +11,7 @@
 ### 의존 패키지
 ```json
   "dependencies": {
+    "@craco/craco": "^7.1.0", // 추가
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

@@ -2,6 +2,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './routes/MovieHome';
 import MovieDetail from './routes/MovieDetail';
 
+const basename = process.env.PUBLIC_URL;
+
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -11,7 +13,7 @@ const routes = createBrowserRouter([
     path: "/movie/:id",
     element: <MovieDetail />,
   },
-]);
+], {basename : basename});
 
 const App = () => {
   return (
