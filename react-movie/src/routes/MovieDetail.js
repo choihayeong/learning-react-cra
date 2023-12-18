@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import style from "../scss/MovieDetail.module.scss";
-import Skeleton from "../components/Skeleton";
-import MovieDetailItem from "../components/MovieDetailItem";
+import style from "@/scss/MovieDetail.module.scss";
+import Skeleton from "@/components/Skeleton";
+import MovieDetailItem from "@/components/Movie/MovieDetailItem";
 
 const MovieDetail = () => {
   const {id} = useParams();
@@ -19,7 +19,7 @@ const MovieDetail = () => {
 
   useEffect(() => {
     getMovieInfo();
-  }, []);
+  });
 
   return (
     <div className={`pad-inline ${style.moviedetail}`}>
